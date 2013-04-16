@@ -3,11 +3,10 @@ require([
   'easing',
   'transitions',
   'bootstrapCarousel',
-  'picturefill',
   'eventMove',
   'eventSwipe'
 ],
-function($,transitions,bootstrapCarousel,picturefill,eventMove,eventSwipe) {
+function($,transitions,bootstrapCarousel,eventMove,eventSwipe) {
 	// SCRIPT HERE
 		var documentBody   = (($.browser.chrome)||($.browser.safari)) ? document.body : document.documentElement,
 			posterHeight   = 580,
