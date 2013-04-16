@@ -1,0 +1,33 @@
+/* ### USAGE
+@font-face {
+    font-family: 'typo_name';
+    src: url('../fonts/typo_name.eot');
+    src: url('../fonts/typo_name.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/typo_name.woff') format('woff'),
+    url('../fonts/typo_name.ttf') format('truetype'),
+    url('../fonts/typo_name.svg#typo_name') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+*/
+
+@font-face {
+    font-family: 'eras_light';
+    src: url('../fonts/eras_light.eot');
+    src: url('../fonts/eras_light.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/eras_light.woff') format('woff'),
+    url('../fonts/eras_light.ttf') format('truetype'),
+    url('../fonts/eras_light.svg#eras_light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'eras_bold';
+    src: url('../fonts/eras_bold.eot');
+    src: url('../fonts/eras_bold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/eras_bold.woff') format('woff'),
+    url('../fonts/eras_bold.ttf') format('truetype'),
+    url('../fonts/eras_bold.svg#eras_bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
