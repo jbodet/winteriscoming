@@ -1,6 +1,6 @@
 # STARTER PROJECT
 Fake website created for GDG Workshop : HTML5 / CSS3 for Responsive Web Design.
-Workshop is detailled in slides directory. Have fun !
+Workshop is in slides directory. Have fun !
 
 # REQUIREMENT
 - nodejs
