@@ -14,7 +14,7 @@ Workshop is in slides directory. Have fun !
 - grunt cssmin : minified index.css and save it to temp/styles directory
 - grunt watch : start watching js/css modification (if modified then do compass)
 - compass run : compile css then start watching 
-- grunt server
+- grunt server : run local server, compile css then start watching
 
 ## ARCHITECTURE
 - app/
