@@ -1,10 +1,12 @@
 # STARTER PROJECT
 Fake website created for GDG Workshop : HTML5 / CSS3 for Responsive Web Design.
+Workshop is detailled in slides directory. Have fun !
 
 # REQUIREMENT
 - nodejs
 - grunt
 - compass
+- ruby
 
 # HELP
 - grunt : check js and compile scss
@@ -12,7 +14,7 @@ Fake website created for GDG Workshop : HTML5 / CSS3 for Responsive Web Design.
 - grunt cssmin : minified index.css and save it to temp/styles directory
 - grunt watch : start watching js/css modification (if modified then do compass)
 - compass run : compile css then start watching 
-- compass server : run localhost and start watching
+- grunt server
 
 ## ARCHITECTURE
 - app/

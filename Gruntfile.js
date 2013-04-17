@@ -24,7 +24,7 @@ module.exports = function(grunt) {
     cssmin: {
       my_target: {
             src: 'app/styles/index.css',
-            dest: 'app/styles/index.css'
+            dest: 'app/styles/index.min.css'
         }
     },
 

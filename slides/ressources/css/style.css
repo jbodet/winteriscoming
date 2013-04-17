@@ -1,0 +1,232 @@
+@import 'bootstrap-responsive.css';
+
+#demo_transition div {
+	width:50%;
+	color: #000;
+	background: #ddd;
+	transition: color 400ms linear, background 400ms linear, width 400ms ease-in 1000ms;
+	cursor: pointer;
+}
+#demo_transition div:hover {
+	width: 100%;
+	color: #fff;
+	background: #000;
+}
+
+@-webkit-keyframes bringToLife {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}
+@-webkit-keyframes bringToLife2 {
+	from {
+		left: 20%;
+	}
+	to {
+		left: 70%;
+	}
+}
+#demo_multiple {
+	height: 200px;
+	background-image: url('../images/multiple.png'), url('../images/multiple2.png');
+	background-repeat: no-repeat;
+	background-position: -30% 40%, 80% 50%;
+	cursor: pointer;
+
+	transition: background-position 200ms ease-in;
+}
+#demo_multiple:hover {
+	background-position: 0% 40%, 100% 50%;	
+}
+#demo_animation {
+	position: relative;
+	height: 150px;
+	background: #ddd;
+	border: 1px solid #888;
+	cursor: pointer;
+}
+#demo_animation div.first {
+	position: absolute; top: 50%; left: 20%;
+	margin-left: -10px; margin-top: -10px;
+	width: 20px; height: 20px;
+	background: #000;
+}
+#demo_animation:hover div.first {
+	margin-left: -20px; margin-top: -20px;
+	width: 40px; height: 40px;
+	background-color: red;
+	-webkit-animation: bringToLife 2s infinite alternate, bringToLife2 4s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes spriteLoader {
+	from {
+		background-position: 0px 0px;
+	}
+	to {
+		background-position: 0px -1500px;
+	}
+}
+#demo_animation_2 {
+	position: relative;
+	height: 170px;
+	background: #ddd;
+	border: 1px solid #888;
+	cursor: pointer;
+}
+#demo_animation_2 div.sprite_loader {
+	position: absolute; top: 50%; left: 50%;
+	margin-left: -60px; margin-top: -70px;
+	width: 183px; height: 150px;
+	background: url('../images/loader-sprite.png') no-repeat top left;
+}
+#demo_animation_2:hover div.sprite_loader {
+	-webkit-animation: spriteLoader 1500ms steps(10) infinite;
+}
+
+#bootstrap_responsive {
+	position: absolute; bottom: 10%; left: 2%;
+	max-width: 480px; max-width: 870px;
+	height: 400px;
+	resize: horizontal;
+	overflow: auto;
+	background: #ddd;
+	border: 5px solid #ddd;
+	box-sizing: auto;
+	-webkit-box-sizing: auto;
+}
+
+#bootstrap_responsive_html {
+	background-color: #ddd;
+}
+#bootstrap_responsive_html .show-grid {
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+#bootstrap_responsive_html div[class^="span"] {
+	min-height: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: #fff;
+	background: #555;
+}
+#bootstrap_responsive_html div[class^="span"] div[class^="span"] {
+	background: #999;
+}
+
+
+.fullpage {
+	position: absolute; top: 0%; left: 0%;
+	width: 100%; height: 100%;
+	}
+.fullpage h1 {
+	display: inline-block; padding: 2%; z-index: 7;
+	position: absolute; bottom: 20%; right: 5%;
+	font-size: 200%;
+	color: #fff;
+	background: rgba(0,0,0,.8);
+	text-transform: uppercase;
+}
+.fullpage h2 {
+	display: inline-block; padding: 2%; z-index: 6;
+	position: absolute; bottom: 7%; right: 5%;
+	font-size: 150%;
+	color: #000;
+	background: rgba(255,255,255,.8);
+}
+.fullpage p {
+	display: inline-block; padding: 0.5% 1% 1%; z-index: 4;
+	position: absolute; bottom: 0%; left: 0%;
+	font-size: 50%;
+	color: #fff;
+	background: rgba(0,0,0,1);
+}
+.fullpage p.credits {
+	display: inline-block; padding: 0.5% 1%; z-index: 4;
+	position: absolute; bottom: 0%; right: 0%;
+	font-size: 60%;
+	color: #ddd;
+	background: rgba(0,0,0,1);
+	text-align: right;
+}
+
+.fullpage video {
+	z-index: 3;
+}
+
+.fullpage.center > div {
+	padding-top: 10%;
+	text-align: center; vertical-align: center;
+}
+
+#tatata {
+	background: url('../images/croods.jpg') no-repeat center center;
+	background-size: cover;
+}
+
+#sheldon {
+	background: url('../images/sheldon.jpg') no-repeat center center;
+	background-size: cover;
+}
+#bazinga {
+	background: url('../images/sheldon2.png') no-repeat center center;
+	background-size: cover;
+}
+#facepalm {
+	background: url('../images/facepalm.jpg') no-repeat center center;
+	background-size: cover;
+}
+#obama {
+	background: url('../images/obama-painting.jpg') no-repeat center center;
+	background-size: cover;
+}
+#boring {
+	background: url('../images/boring-school.jpg') no-repeat center center;
+	background-size: cover;
+}
+#trololo {
+	background: url('../images/trololo.jpg') no-repeat center center;
+	background-size: cover;
+}
+#pipe {
+	background: url('../images/pipe.png') no-repeat center center;
+	background-size: cover;
+}
+#inquisition {
+	background: url('../images/inquisition.png') no-repeat center center;
+	background-size: cover;
+}
+#grunt {
+	background: url('../images/grunt-large-2.png') no-repeat center center;
+	background-size: cover;
+}
+#sass {
+	background: #000 url('../images/sass.png') no-repeat 50% 28%;
+}
+#require {
+	background: #000 url('../images/requirejs.png') no-repeat 0% 28%;
+}
+#construction {
+	background: url('../images/construction.jpg') no-repeat center center;
+	background-size: cover;
+}
+#prezend {
+	background: url('../images/schools_out.jpg') no-repeat center center;
+	background-size: cover;
+}
+
+@-webkit-keyframes showStark {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: .2;
+	}
+}
+#winteriscoming {}
+#winteriscoming .emblem {
+	opacity: 0;
+	-webkit-animation: showStark 2s infinite alternate ease-in 2s;	
+}

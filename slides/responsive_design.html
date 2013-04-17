@@ -1,0 +1,1876 @@
+<!DOCTYPE html>
+<html class="aspect-4-3">
+  <head>
+    <meta charset="utf-8">
+    <title>Workshop HTML5 : Responsive design</title>
+    <meta name="description" content="Atelier sur la réalisation d'un site responsive via une grille">
+    <meta name="copyright" content="Copyright 2013 SQLI">
+    <meta name="generator" content="AsciiDoc 8.6.8, dzslides backend">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald">
+    <link rel="stylesheet" href="./dzslides/themes/highlight/github.min.css">
+    <link rel="stylesheet" href="./dzslides/themes/style/sqli.css">
+    <!-- bug in full screen image if include dzslides.css before ours -->
+    <link rel="stylesheet" href="./dzslides/core/dzslides.css">
+    <link rel="stylesheet" href="./dzslides/themes/transition/fade.css">
+    <link rel="stylesheet" href="ressources/css/style.css">
+  </head>
+  <body>
+    <section class="title">
+      <h1>Workshop HTML5</h1>
+<div class="subtitle"><h2 class="subtitle">Le CSS3 au service du Responsive Design</h2></div>
+    </section>
+<section>
+<h2>Intervenant</h2>
+<article>
+<p><span class="pull-right"><span class="image">
+<img src="ressources/images/photo.png" alt="Logo">
+</span></span></p>
+<ul>
+<li>
+<strong>Julien BODET</strong>
+<ul>
+<li>
+Consultant SQLI
+<div class="literal">
+<pre class="literal">Conception et développement Front-end</pre>
+</div>
+<div class="literal">
+<pre class="literal">SEO/Monitoring</pre>
+</div>
+<div class="literal">
+<pre class="literal">Formateur HTML/CSS</pre>
+</div>
+</li>
+<li>
+SQLI Agency Nantes
+<div class="literal">
+<pre class="literal">Pôle conception, design, intégration</pre>
+</div>
+</li>
+<li>
+Contact
+<div class="literal">
+<pre class="literal">jbodet@sqli.com</pre>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</article>
+</section>
+<section>
+<h2>Contenu de l&#8217;atelier</h2>
+<article>
+<ul class="incremental">
+<li>
+<strong>Définitions</strong>
+<div class="literal">
+<pre class="literal">Responsive Design et HTML5</pre>
+</div>
+</li>
+<li>
+<strong>Nouveautés du CSS3</strong>
+<div class="literal">
+<pre class="literal">Apprendre à manier les sélecteurs, redécouvrir certaines propriétés
+et s'attarder sur les possibilités du CSS3</pre>
+</div>
+</li>
+<li>
+<strong>Atelier</strong>
+<div class="literal">
+<pre class="literal">Découvrir un cas concret de création de site responsive (mais pas que)</pre>
+</div>
+</li>
+</ul>
+</article>
+</section>
+<section>
+<h2>Définition du responsive web design (RWD)</h2>
+<article>
+<blockquote>
+<p>Get <strong>your content</strong> ready to go anywhere because it’s going to go <strong>everywhere</strong>.</p>
+ <cite>Brad Frost</cite></blockquote>
+<ul class="incremental">
+<li>
+<strong>Responsive Web Design :</strong> présentation adaptée aux multiples résolutions d'écran
+</li>
+<li>
+à l&#8217;aide d&#8217;une grille fluide et/ou de media queries (CSS)&#8230;
+</li>
+<li>
+&#8230; sans oublier toutes <strong>les spécificités de chaque support</strong> (JS mostly required)
+</li>
+</ul>
+</article>
+</section>
+<section>
+<h2>Rappel sur le HTML 5</h2>
+<article>
+<div class="sect2">
+<h3 id="_le_html5_est_une_combinaison_de_trois_évolutions">Le HTML5 est une combinaison de trois évolutions</h3>
+<ul class="incremental">
+<li>
+<strong>HTML5</strong>
+<div class="literal">
+<pre class="literal">Nouvelles balises sémantiques
+Nouveaux objets (canvas, slider, formulaire, video, etc.)</pre>
+</div>
+</li>
+<li>
+<strong>JavaScript</strong>
+<div class="literal">
+<pre class="literal">querySelector
+Webstorage
+Offline webApp
+webSocket
+Géolocalisation</pre>
+</div>
+</li>
+<li>
+<strong>CSS3</strong>
+<div class="literal">
+<pre class="literal">Sélecteurs avancés
+Mise en forme évoluée
+Interactivités et animations
+Media queries</pre>
+</div>
+</li>
+</ul>
+</div>
+</article>
+</section>
+<section>
+<h2>Compatibilité navigateur</h2>
+<article>
+<div class="sect2">
+<h3 id="_la_bonne_question_à_se_poser_avant_tout_conception_y_compris">la bonne question à se poser avant tout (conception y compris)</h3>
+<p><span class="image">
+<img src="ressources/images/browsers.png" alt="navigateurs compatibles">
+</span></p>
+<ul class="incremental">
+<li>
+<strong>Bon élève :</strong> Maxhton (4.0), Chrome (26)
+</li>
+<li>
+<strong>Mauvais élève :</strong> Internet Explorer (10)
+<div class="literal">
+<pre class="literal">Cibler les développements sur ie9+ pour commencer à exploiter les CSS3</pre>
+</div>
+</li>
+<li>
+Bonne pratique : <strong>Progressive Enhancement</strong>
+<div class="literal">
+<pre class="literal">Un rendu amélioré selon les possibilités offertes par le navigateur</pre>
+</div>
+</li>
+<li>
+<strong>Ressources :</strong>
+<div class="literal">
+<pre class="literal">http://html5test.com
+http://www.w3schools.com/cssref/css3_browsersupport.asp
+http://www.quirksmode.org/css/selectors/</pre>
+</div>
+</li>
+</ul>
+</div>
+</article>
+</section>
+<section>
+<h2>CSS3 : les nouveautés</h2>
+<article>
+<div class="sect2">
+<h3 id="_le_navigateur_reprend_la_main_8230">Le navigateur reprend la main&#8230;</h3>
+<ul class="incremental">
+<li>
+<strong>Sélecteurs</strong>
+<div class="literal">
+<pre class="literal">Ciblage avancé d'éléments dans le DOM (conditionnel, etc.)... sans JS</pre>
+</div>
+</li>
+<li>
+<strong>Font</strong>
+<div class="literal">
+<pre class="literal">Utilisation simplifiée de typographies "exotiques"</pre>
+</div>
+</li>
+<li>
+<strong>Graphisme</strong>
+<div class="literal">
+<pre class="literal">Délégation au moteur de rendu pour des éléments jadis traités en images</pre>
+</div>
+</li>
+<li>
+<strong>Transitions / Animation</strong>
+<div class="literal">
+<pre class="literal">Interactivité renforcée via le moteur de rendu... sans JS</pre>
+</div>
+</li>
+<li>
+<strong>Media Queries</strong>
+<div class="literal">
+<pre class="literal">Délégation de règles de rendu via le CSS</pre>
+</div>
+</li>
+</ul>
+</div>
+</article>
+</section>
+<section>
+<h2>&#160;</h2>
+<article>
+<div id="sheldon" class="fullpage">
+<h1>Les sélecteurs CSS</h1>
+<h2>Commençons par le plus fun*</h2>
+<p class="credits">&copy; CBS</p>
+<p>* Offre non contractuelle</p>
+</div>
+</article>
+</section>
+<section>
+<h2>Les sélecteurs</h2>
+<article>
+<div class="sect2">
+<h3 id="_rappel_utile">Rappel (utile ?)</h3>
+<div class="listing">
+<pre class="css"><code>div#mon_element div.mes_elements p {}</code></pre>
+</div>
+<ul class="incremental">
+<li>
+Sélectionner les éléments de type paragraphe&#8230;
+</li>
+<li>
+&#8230;parmi ces éléments, retenir ceux contenus dans des éléments à la classe "mes_elements"&#8230;
+</li>
+<li>
+&#8230;parmi ces éléments, retenir ceux contenus dans l'élément identifié par "mon_element"&#8230;
+</li>
+<li>
+On évite donc les sélecteurs un peu "vague" (*)
+</li>
+<li>
+&#8230;
+</li>
+<li>
+&#8230;
+</li>
+<li>
+<strong>C&#8217;est tout ce que l&#8217;on peut utiliser grâce à IE.</strong>
+</li>
+</ul>
+</div>
+</article>
+</section>
+<section>
+<h2>&#160;</h2>
+<article>
+<div id="bazinga" class="fullpage">
+<p class="credits">&copy; CBS</p>
+</div>
+</article>
+</section>
+<section>
+<h2>Nouveaux sélecteurs</h2>
+<article>
+<div class="sect2">
+<h3 id="_8230_et_autres_peu_usités">&#8230;et autres peu usités</h3>
+<ul>
+<li>
+Cibler un élément du DOM dont <strong>l&#8217;attribut est égal à la valeur indiquée</strong>
+</li>
+</ul>
+<div class="listing">
+<pre class="css"><code>element[attribut=valeur] {}</code></pre>
+</div>
+<ul>
+<li>
+<strong>Cibler plus finement</strong> un attribut
+</li>
+</ul>
+<div class="listing">
+<pre class="css"><code>element[attribut^=valeur] {} // ^= commence par
+element[attribut$=valeur] {} // $= se finit par
+element[attribut*=valeur] {} // *= contient</code></pre>
+</div>
+<ul>
+<li>
+<strong>Exemple concret</strong>
+</li>
+</ul>
+<div class="listing">
+<pre class="css"><code>div[class^=poster_] {} // les DIV dont la classe commence par poster_</code></pre>
+</div>
+<table class="tableblock frame-all grid-all"
+style="
+width:100%;
+">
+<col style="width:50%;">
+<col style="width:50%;">
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" >Correct                                                        </th>
+<th class="tableblock halign-left valign-top" >Incorrect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">class="poster_rouge"</p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">class="monposter_rouge"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">class="poster_egalement_rouge"</p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">class="poster poster_rouge"</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</article>
+</section>
+<section>
+<h2>Nouveaux sélecteurs</h2>
+<article>
+<div class="sect2">
+<h3 id="_8230_et_autres_peu_usités_2">&#8230;et autres peu usités</h3>
+<p><span class="pull-right"><span class="image">
+<img src="ressources/images/einstein.png" alt="Screenshot">
+</span></span></p>
+<ul>
+<li>
+<strong>Pseudo-sélecteurs</strong> plus abstraits : ( <strong>n</strong> )th
+<div class="literal">
+<pre class="literal">Sélectionne le X(ième) éléments B de l'élément A</pre>
+</div>
+</li>
+</ul>
+<div class="listing">
+<pre class="css"><code>A B:nth-child(X) {}</code></pre>
+</div>
+<ul>
+<li>
+Un sélecteur permettant notamment des <strong>formules plus complexes</strong>
+<ul>
+<li>
+X peut être une formule comme 2n+1 où n peut être égal à 0, 1, 2, etc.
+<div class="literal">
+<pre class="literal">X = 2*0+1 (=1)
+X = 2*1+1 (=3)
+X = 2*2+1 (=5)</pre>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+<div class="listing">
+<pre class="css"><code>tr:nth-child(2n+1) {}</code></pre>
+</div>
+<ul>
+<li>
+Ou plus simplement :-)
+</li>
+</ul>
+<div class="listing">
+<pre class="css"><code>tr:nth-child(odd)  {}  // pair
+tr:nth-child(even) {}  // impair</code></pre>
+</div>
+</div>
+</article>
+</section>
+<section>
+<h2>Nouveaux sélecteurs</h2>
+<article>
+<div class="sect2">
+<h3 id="_8230_et_autres_peu_usités_3">&#8230;et autres peu usités</h3>
+<p><span class="pull-right"><span class="image">
+<img src="ressources/images/einstein2.png" alt="Screenshot">
+</span></span></p>
+<ul>
+<li>
+Il est important de <strong>distinguer les types</strong>
+</li>
+</ul>
+<div class="listing">
+<pre class="html"><code>&lt;div&gt;
+        &lt;h1&gt;Lorem ipsum&lt;/h1&gt;
+        &lt;h2&gt;Lorem ipsum&lt;/h2&gt;
+        &lt;p&gt;Lorem ipsum&lt;/p&gt;
+        &lt;p&gt;Lorem ipsum&lt;/p&gt;s
+&lt;/div&gt;</code></pre>
+</div>
+<div class="listing">
+<pre class="css"><code>div h2:nth-child(1) {} // ne cible pas H2 (2nd child)</code></pre>
+</div>
+<ul>
+<li>
+Cibler <strong>une place</strong> et <strong>un type</strong>
+</li>
+</ul>
+<div class="listing">
+<pre class="css"><code>tr:nth-of-type(n) {}</code></pre>
+</div>
+<div class="listing">
+<pre class="css"><code>tr:first-child()       {}  // premier élément
+tr:last-child()        {}  // dernier élément
+tr:nth-last-child(n)   {}  // nième élément (en partant de la fin)
+tr:nth-last-of-type(n) {}  // nième élément du type TR (en partant de la fin)</code></pre>
+</div>
+</div>
+</article>
+</section>
+<section>
+<h2>Nouveaux sélecteurs</h2>
+<article>
+<div class="sect2">
+<h3 id="_8230_et_autres_peu_usités_4">&#8230;et autres peu usités</h3>
+<ul>
+<li>
+Autres curiosités du CSS3
+</li>
+</ul>
+<div class="listing">
+<pre class="css"><code>td:empty           {}  // cellule vide
+div:not(.maclasse) {}  // div dont la classe n'est pas "maclasse"
+:checked           {}  // élément disposant de l'attribut checked="checked"
+:enabled           {}  // élement disposant de l'attribut enabled="enabled"
+:disabled          {}  // élément disposant de l'attribut disabled="disabled"</code></pre>
+</div>
+<ul>
+<li>
+Navigation avancée
+</li>
+</ul>
+<div class="listing">
+<pre class="html"><code>&lt;a href="#monbloc"&gt;Montrer le bloc&lt;/a&gt;
+
+&lt;div id="monautrebloc"&gt;&lt;/div&gt;
+&lt;div id="monbloc"&gt;&lt;/div&gt;</code></pre>
+</div>
+<div class="listing">
+<pre class="css"><code>div        { display: none; }
+div:target { display: block; }</code></pre>
+</div>
+<ul>
+<li>
+L&#8217;idée ? Montrer le bloc "monbloc" lorsque l&#8217;ancre "#monbloc" est active
+<div class="literal">
+<pre class="literal">Possibilité de gérer des carousels full CSS (sans JS)
+... mais attention au comportement par défaut d'une ancre !</pre>
+</div>
+</li>
+</ul>
+</div>
+</article>
+</section>
+<section>
+<h2>&#160;</h2>
+<article>
+<div id="pipe" class="fullpage">
+<h1>Interlude sur Display</h1>
+<h2>Ceci n'est pas (forcément) du CSS3</h2>
+</div>
+</article>
+</section>
+<section>
+<h2>Propriété Display</h2>
+<article>
+<div class="sect2">
+<h3 id="_travestir_un_élément">Travestir un élément</h3>
+<ul class="incremental">
+<li>
+Largement antérieur à CSS3
+</li>
+<li>
+Les éléments peuvent être de <strong>deux types</strong> :
+<ul>
+<li>
+<strong>Block :</strong> largeur de 100%, provoque le retour à la ligne, permet des marges (haut/bas)
+</li>
+<li>
+<strong>Inline :</strong> largeur égale au contenu, les éléments se positionnent les uns après les autres
+</li>
+</ul>
+</li>
+<li>
+&#8230; faux !
+<ul>
+<li>
+<strong>list-item</strong> (CSS1) : éléments block en inline isolé par des marges extérieures
+</li>
+<li>
+<strong>inline-block</strong> (CSS2) : pour des éléments inline, mix entre Block et Inline
+</li>
+<li>
+etc. (grid &amp; flex en CSS3)
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</article>
+</section>
+<section>
+<h2>Propriété Display</h2>
+<article>
+<div class="sect2">
+<h3 id="_travestir_un_élément_2">Travestir un élément</h3>
+<ul>
+<li>
+Pensez&#8230; compatibilité
+</li>
+</ul>
+<p><span class="image">
+<img src="ressources/images/display.png" alt="Logo">
+</span></p>
+<div id="inquisition" class="fullpage">
+<h1>Vous souvenez-vous de TABLE ?</h1>
+<h2>Une hérésie sémantique !</h2>
+</div>
+</div>
+</article>
+</section>
+<section>
+<h2>Propriété Display</h2>
+<article>
+<div class="sect2">
+<h3 id="_travestir_un_élément_3">Travestir un élément</h3>
+<ul>
+<li>
+Certes pour l&#8217;utilisation de l'élément TABLE&#8230;
+</li>
+<li>
+&#8230;mais pour conserver les avantages de la présentation ?
+<ul>
+<li>
+Alignement vertical du contenu des cellules
+</li>
+<li>
+Colonnes avec une hauteur commune
+</li>
+</ul>
+</li>
+<li>
+<strong>Retour en CSS2</strong> (oui, bien avant le CSS3)
+</li>
+</ul>
+<div class="listing">
+<pre class="css"><code>.table { display: table; }
+.row   { display: table-row; }
+.cell  { display: table-cell; }</code></pre>
+</div>
+<div class="listing">
+<pre class="html"><code>&lt;div class="table"&gt;
+        &lt;div class="row"&gt;
+                &lt;div class="cell"&gt;Cellule 1&lt;/div&gt;
+                &lt;div class="cell"&gt;Cellule 2&lt;/div&gt;
+                &lt;div class="cell"&gt;Cellule 3&lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+</div>
+</article>
+</section>
+<section>
+<h2>&#160;</h2>
+<article>
+<div id="facepalm" class="fullpage">
+<h1>&laquo; Ce n'est pas une typo standard ! &raquo;</h1>
+<h2>Et alors ?</h2>
+</div>
+</article>
+</section>
+<section>
+<h2>@Font-face</h2>
+<article>
+<div class="sect2">
+<h3 id="_possibilité_de_charger_des_typographies_spécifiques">Possibilité de charger des typographies spécifiques</h3>
+<div class="listing">
+<pre class="css"><code>@font-face {
+        font-family: 'MyWebFont';
+        src: url('webfont.eot');
+        src: url('webfont.eot?#iefix') format('embedded-opentype'),
+             url('webfont.woff') format('woff'),
+                 url('webfont.ttf')  format('truetype'),
+             url('webfont.svg#svgFontName') format('svg');
+}
+body {
+        font-family: 'MyWebFont', typo_de_secours, sans-serif;
+}</code></pre>
+</div>
+<ul class="incremental">
+<li>
+<strong>ATTENTION ! Les problèmes de droits persistent !</strong>
+</li>
+<li>
+Comme rien n&#8217;est simple, il faut prévoir différents formats
+<div class="literal">
+<pre class="literal">.oet : IE9
+.ieot?#iefix : IE6-IE8
+.ttf : Safari, Android, iOS
+.svg : iOS
+.woff : navigateurs modernes</pre>
+</div>
+</li>
+</ul>
+</div>
+</article>
+</section>
+<section>
+<h2>&#160;</h2>
+<article>
+<div id="obama" class="fullpage">
+<h1>Graphisme CSS3</h1>
+<h2>Yes we can !*</h2>
+<p class="credits">&copy; ROBERTS/POOL</p>
+<p>* Offre soumise à conditions</p>
+</div>
+</article>
+</section>
+<section>
+<h2>Graphsime</h2>
+<article>
+<div class="sect2">
+<h3 id="_dessine_moi_un_css">Dessine moi un CSS</h3>
+<ul>
+<li>
+<strong>Border-radius</strong>
+</li>
+</ul>
+<div class="listing">
+<pre class="css"><code>border-radius: top-left top-right bottom-right bottom-left;</code></pre>
+</div>
+<div style="color: #888; text-align: center; border: 1px solid #888; border-radius: 10px 20px 30px 40px; height: 40px;">border-radius: 10px 20px 30px 40px;</div>
+<ul>
+<li>
+<strong>box-shadow</strong>
+</li>
+</ul>
+<div class="listing">
+<pre class="css"><code>box-shadow: x y spread color;</code></pre>
+</div>
+<div style="color: #888; text-align: center; border: 1px solid #888; box-shadow: 5px 15px 35px #222; height: 40px;">box-shadow: 5px 15px 35px #222;</div>
+</div>
+</article>
+</section>
+<section>
+<h2>Graphsime</h2>
+<article>
+<div class="sect2">
+<h3 id="_dessine_moi_un_css_2">Dessine moi un CSS</h3>
+<ul>
+<li>
+<strong>background :</strong> gestion des dégradés
+</li>
+</ul>
+<div class="listing">
+<pre class="css"><code>background: linear-gradient(color 1, color 2);</code></pre>
+</div>
+<div style="color: #fff; vertical-align: middle; text-align: center; border: 1px solid #888; background: linear-gradient(#888 0%, #222 50%); line-height: 80px; height: 80px;">background: linear-gradient(#888 0%, #222 50%);</div>
+<ul>
+<li>
+<strong>background :</strong> fond constitué d&#8217;une ou plusieurs images
+</li>
+</ul>
+<div class="listing">
+<pre class="css"><code>background: url('../mon_image.png') no-repeat top left,
+            transparent url('../mon_autre_image.png') no-repeat top left;</code></pre>
+</div>
+<div id="demo_multiple"></div>
+</div>
+</article>
+</section>
+<section>
+<h2>Graphsime</h2>
+<article>
+<div class="sect2">
+<h3 id="_dessine_moi_un_css_3">Dessine moi un CSS</h3>
+<ul>
+<li>
+<strong>Opacity :</strong> gérer l&#8217;opacité d&#8217;un élément
+</li>
+</ul>
+<div class="listing">
+<pre class="css"><code>opacity: 50;</code></pre>
+</div>
+<div style="position: relative; height: 130px; border: 1px solid #000; background: #eee">
+<div style="position: absolute; top: 0px; left: 0px; width: 50%; height: 130px; opacity: 0.5; background: rgb(0,0,0); text-align: center;"><span style="position: absolute; top: 50px; background:#000; padding: 5px; color: #fff;">Lorem ipsum</span></div>
+<p style="padding: 5px;color: #333;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pretium ultrices orci, ut tincidunt leo pretium at. Suspendisse potenti. Ut quis vestibulum velit. Morbi commodo tincidunt lacus, at molestie risus imperdiet et. Praesent semper metus et odio sagittis viverra. In enim nulla, placerat sit amet sodales nec, eleifend eget urna.</p>
+</div>
+<ul>
+<li>
+<strong>rgba :</strong> rgb color avec un paramètre alpha
+</li>
+</ul>
+<div class="listing">
+<pre class="css"><code>background: rgba(0,0,0,.5);</code></pre>
+</div>
+<div style="position: relative; height: 130px; border: 1px solid #000; background: #eee">
+<div style="position: absolute; top: 0px; left: 0px; width: 50%; height: 130px; background: rgba(0,0,0,.5); text-align: center;"><span style="position: absolute; top: 50px; background:#000; padding: 5px; color: #fff;">Lorem ipsum</span></div>
+<p style="padding: 5px;color: #333;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pretium ultrices orci, ut tincidunt leo pretium at. Suspendisse potenti. Ut quis vestibulum velit. Morbi commodo tincidunt lacus, at molestie risus imperdiet et. Praesent semper metus et odio sagittis viverra. In enim nulla, placerat sit amet sodales nec, eleifend eget urna.</p>
+</div>
+</div>
+</article>
+</section>
+<section>
+<h2>&#160;</h2>
+<article>
+<div class="fullpage center" style="background-color: #000"><div>
+<div class="videoblock">
+<div class="content">
+<video src="ressources/videos/itsalive.mp4" width="500" controls="controls">
+Your browser does not support the video tag.
+</video>
+</div></div>
+<h1>Rendez le tout vivant !</h1>
+</div></div>
+</article>
+</section>
+<section>
+<h2>Transitions</h2>
+<article>
+<div class="sect2">
+<h3 id="_un_peu_d_8217_interactivité">Un peu d&#8217;interactivité !</h3>
+<ul>
+<li>
+Syntaxe
+</li>
+</ul>
+<div class="listing">
+<pre class="css"><code>transition: property duration easing delay;</code></pre>
+</div>
+<ul>
+<li>
+Démo
+</li>
+</ul>
+<div class="listing">
+<pre class="css"><code>#demo_transition div {
+        width:50%;
+        color: #000; background: #ddd;
+        transition:
+                color 100ms linear,
+                background 100ms linear,
+                width 400ms ease-in 1000ms;
+        cursor: pointer;
+}
+#demo_transition div:hover {
+        width: 100%;
+        color: #fff; background: #000;
+}</code></pre>
+</div>
+<div id="demo_transition" style="position: relative; height: 50px; overflow: hidden;">
+        <div style="position: absolute; top: 0px; left: 0px; height: 50px; text-align: center;">Au survol</div>
+</div>
+</div>
+</article>
+</section>
+<section>
+<h2>Animation</h2>
+<article>
+<div class="sect2">
+<h3 id="_it_8217_s_alive">It&#8217;s alive !</h3>
+<ul>
+<li>
+Démo (rapide)
+</li>
+</ul>
+<div class="listing">
+<pre class="css"><code>@keyframes bringToLife {
+        from {
+                transform: rotate(0deg);
+        }
+        to {
+                transform: rotate(360deg);
+        }
+}
+.animate {
+        animation: bringToLife 2s infinite alternate;
+}</code></pre>
+</div>
+<div id="demo_animation">
+        <div class="first"></div>
+</div>
+</div>
+</article>
+</section>
+<section>
+<h2>Animation</h2>
+<article>
+<div class="sect2">
+<h3 id="_it_8217_s_alive_2">It&#8217;s alive !</h3>
+<ul>
+<li>
+Utilisation via un sprite
+<div class="literal">
+<pre class="literal">Sprite regroupe plusieurs frames d'une animation
+Via le paramètre steps() on spécifie le découpage en 10 cases</pre>
+</div>
+</li>
+</ul>
+<div class="listing">
+<pre class="css"><code>@keyframes animateSprite {
+        from {
+                background-position: 0px 0px;
+        }
+        to {
+                background-position: 0px -1500px;
+        }
+}
+.animate {
+        animation: animateSprite 1500ms steps(10) infinite;
+}</code></pre>
+</div>
+<div id="demo_animation_2">
+        <div class="sprite_loader"></div>
+</div>
+</div>
+</article>
+</section>
+<section>
+<h2>&#160;</h2>
+<article>
+<div id="boring" class="fullpage">
+<h1>Mais euh...</h1>
+<h2>...concernant le sujet de ce workshop ?</h2>
+<p class="credits">&copy; Gaga Communications</p>
+</div>
+</article>
+</section>
+<section>
+<h2>Media queries</h2>
+<article>
+<div class="sect2">
+<h3 id="_définir_des_styles_pour_une_configuration_client">Définir des styles pour une configuration client</h3>
+<ul>
+<li>
+<strong>Syntaxe</strong>
+</li>
+</ul>
+<div class="listing">
+<pre class="css"><code>@media screen and (min-width: 200px) and (max-width: 1023px) {
+        body {
+                // style dédié
+        }
+}
+@media screen and (min-width: 1024px){
+        body {
+                // style dédié
+        }
+}</code></pre>
+</div>
+<ul>
+<li>
+<strong>Intérêt ?</strong>
+<ul>
+<li>
+Cibler un type de périphérique (screen, tv, print, etc.)
+<div class="literal">
+<pre class="literal">...avec les limites (handled ?)</pre>
+</div>
+</li>
+<li>
+Cibler une résolution d'écran
+<div class="literal">
+<pre class="literal">...avec des jalons (min-width, max-width, resolution dpi, etc.)</pre>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</article>
+</section>
+<section>
+<h2>&#160;</h2>
+<article>
+<div class="fullpage" style="background-color:#000">
+        <h1>J'ai appelé ça...</h1>
+</div>
+</article>
+</section>
+<section>
+<h2>&#160;</h2>
+<article>
+<div id="tatata" class="fullpage">
+        <h1>Le Responsive Design</h1>
+        <h2>Ta ta ta...*</h2>
+        <p class="credits">&copy; DreamWorks Animation</p>
+        <p>* Enfin c'est pas trop tôt, c'est un peu le sujet du workshop quand même...</p>
+</div>
+</article>
+</section>
+<section>
+<h2>Media queries</h2>
+<article>
+<div class="sect2">
+<h3 id="_prévoir_les_jalons">Prévoir les jalons</h3>
+<p><span class="image">
+<img src="ressources/images/responsive2.png" alt="Logo">
+</span></p>
+</div>
+</article>
+</section>
+<section>
+<h2>Media queries</h2>
+<article>
+<div class="sect2">
+<h3 id="_prévoir_les_jalons_2">Prévoir les jalons</h3>
+<p><span class="image">
+<img src="ressources/images/responsive-templates.jpg" alt="Logo">
+</span></p>
+<ul>
+<li>
+Notons le cas de certaines tablettes (ipad, etc.) :
+<ul>
+<li>
+Selon certaines grilles, ~1024px est considéré comme du desktop et non une tablette
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</article>
+</section>
+<section>
+<h2>Media queries</h2>
+<article>
+<div class="sect2">
+<h3 id="_prévoir_les_jalons_3">Prévoir les jalons</h3>
+<p><span class="image">
+<img src="ressources/images/responsive.png" alt="Logo">
+</span></p>
+<ul>
+<li>
+Exemple Bootstrap :
+</li>
+</ul>
+<div class="listing">
+<pre class="css"><code>/* Large desktop */
+@media (min-width: 1200px) { ... }
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) { ... }
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { ... }
+
+/* Portrait phones and down */
+@media (max-width: 480px) { ... }</code></pre>
+</div>
+</div>
+</article>
+</section>
+<section>
+<h2>&#160;</h2>
+<article>
+<div style="background-color: #000" class="fullpage">
+<h1>&laquo; En tant que développeur, je suis contre les grilles &raquo;</h1>
+</div>
+</article>
+</section>
+<section>
+<h2>&#160;</h2>
+<article>
+<div id="trololo" class="fullpage">
+<h1>&laquo; En tant que développeur, je suis contre les grilles &raquo;</h1>
+<h2>Ceci est effectivement un troll</h2>
+</div>
+</article>
+</section>
+<section>
+<h2>Media queries</h2>
+<article>
+<div class="sect2">
+<h3 id="_utilisation_d_8217_une_grille">Utilisation d&#8217;une grille</h3>
+<ul class="incremental">
+<li>
+Les grilles (grid) sont des <strong>outils de dimensionnement de votre contenu</strong>
+<ul>
+<li>
+Elles vous assurent une présentation stable quelque soit le device
+</li>
+<li>
+Vous les utilisez implicitement lors de la conception d&#8217;un site responsive
+</li>
+</ul>
+</li>
+<li>
+&#8230;sinon
+<ul>
+<li>
+Vous n'êtes peut être pas en train de faire du RWD
+</li>
+<li>
+Mais plutôt une application dédiée
+</li>
+</ul>
+</li>
+<li>
+Une grille a néanmoins <strong>un impact</strong>
+<ul>
+<li>
+En conception (storyboard, design)
+</li>
+<li>
+En intégration
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</article>
+</section>
+<section>
+<h2>Media queries</h2>
+<article>
+<div class="sect2">
+<h3 id="_exemple_de_la_grille_bootstrap">Exemple de la grille Bootstrap</h3>
+<p><span class="image">
+<img src="ressources/images/bootstrap.png" alt="Logo">
+</span></p>
+<iframe id="bootstrap_responsive" width="870"
+    height="300"
+    src="ressources/html/bootstrap.html"
+    frameborder="0"
+    allowfullscreen></iframe>
+</div>
+</article>
+</section>
+<section>
+<h2>Media queries</h2>
+<article>
+<div class="sect2">
+<h3 id="_exemple_de_la_grille_bootstrap_2">Exemple de la grille Bootstrap</h3>
+<ul>
+<li>
+<strong>Structure HTML</strong>
+</li>
+</ul>
+<div class="listing">
+<pre class="html"><code>&lt;div class="container"&gt;
+        &lt;div class="row-fluid"&gt;
+                &lt;div class="span4"&gt;&lt;/div&gt;
+                &lt;div class="span4"&gt;&lt;/div&gt;
+                &lt;div class="span4"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+<ul>
+<li>
+<strong>Structure CSS</strong>
+</li>
+</ul>
+<div class="listing">
+<pre class="css"><code>.row-fluid   { width: 100%; }
+.row-fluid:before, .row-fluid:after {
+        display: table;
+        line-height: 0; content: "";
+}
+.span4 {
+        width: 31.623931623931625%;       // valeur exacte
+        margin-left: 2.564102564102564%;  // valeur exacte
+        float: left;
+}
+.span4:first-child(){ margin-left: 0; }</code></pre>
+</div>
+</div>
+</article>
+</section>
+<section>
+<h2>Media queries</h2>
+<article>
+<div class="sect2">
+<h3 id="_exemple_de_la_grille_bootstrap_3">Exemple de la grille Bootstrap</h3>
+<ul>
+<li>
+<strong>Boîte à outils</strong>
+</li>
+</ul>
+<div class="listing">
+<pre class="css"><code>.visible-phone {}
+.hidden-phone {}
+
+.visible-tablet {}
+.hidden-tablet {}
+
+.visible-desktop {}
+.hidden-desktop {}</code></pre>
+</div>
+<p><span class="image">
+<img src="ressources/images/visible.png" alt="Logo">
+</span></p>
+</div>
+</article>
+</section>
+<section>
+<h2>Media queries</h2>
+<article>
+<div class="sect2">
+<h3 id="_exemple_de_la_grille_bootstrap_4">Exemple de la grille Bootstrap</h3>
+<ul>
+<li>
+<strong>Mais ce n&#8217;est pas parfait&#8230;</strong>
+<ul>
+<li>
+Une ligne devrait pouvoir avoir plusieurs configurations
+<div class="literal">
+<pre class="literal">Sur desktop : (1 span2) + (1 span6) + (1 span4)
+Sur tablette : (1 span2) + (1 span8) + (1 span4 hidden)</pre>
+</div>
+</li>
+<li>
+Mais impossible de transformer 1 span6 en span8
+</li>
+<li>
+<strong>A moins de modifier Bootstrap</strong>
+</li>
+</ul>
+</li>
+</ul>
+<div class="listing">
+<pre class="html"><code>&lt;div class="row-fluid"&gt;
+        &lt;div class="span2"&gt;&lt;/div&gt;
+        &lt;div class="span6 span8-tablet"&gt;&lt;/div&gt;
+        &lt;div class="span4 visible-desktop"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+<div class="listing">
+<pre class="css"><code>media (max-width: 1023px) {
+        .span6 {}
+        .span8-tablet {}
+}</code></pre>
+</div>
+</div>
+</article>
+</section>
+<section>
+<h2>&#160;</h2>
+<article>
+<div style="background-color: #000" class="fullpage">
+<h1>L'heure de la démo</h1>
+</div>
+</article>
+</section>
+<section>
+<h2>&#160;</h2>
+<article>
+<div id="winteriscoming" style="background-color: #000" class="fullpage">
+<div class="emblem">
+        <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 width="651.97px" height="552.76px" viewBox="0 0 651.97 552.76" enable-background="new 0 0 651.97 552.76" xml:space="preserve">
+        <g>
+                <g>
+                        <path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M637.195,73.167l-2.077-2.769l-25.271,2.422L567.96,62.784
+                                l-33.232-3.115l-17.31-17.305l-60.58-13.844l-24.579-2.769h-5.539l-11.77-6.922l-56.427,22.497l-21.116,0.692l-18.348-7.614
+                                l-16.271-11.767L288.942,4.986l0.346,12.113l8.308,20.419l9.693,13.152l-44.311-5.538l-22.155-8.306l-19.386-15.574l16.616,27.341
+                                l12.116,12.459l13.847,6.576l-2.423,4.499l-43.618,5.191l-18.693-5.884l-18.347-10.383l6.231,15.92l19.732,12.806l18.348,6.229
+                                l-21.809,8.999l-18.694,2.077l-36.694,2.077l-22.848-4.5l22.501,15.575l23.886,6.921l19.732,4.5l-64.042,14.882l-27.348-2.422
+                                l9.347,12.459l17.655,6.576l28.732,4.845l-49.503,12.806l-37.733,0.346L45.581,170.42l-7.27-1.038l-0.692,2.422l10.385,15.574
+                                l28.04,16.267l34.964,2.076l-17.655,6.576l-34.271-0.692l-30.117-8.306L7.501,185.648l10.385,21.458l16.27,17.997l24.579,10.383
+                                l26.31-0.692l24.232-13.151l-8.308,12.113l-5.539,22.496l-5.192,12.459l42.233-1.384l-0.692,18.342l-4.154,16.267l16.616-1.038
+                                l15.924-4.845l12.116-5.884l-7.27,27.341l9.693,1.385l-21.117,29.765l-0.346,5.191l4.154,2.769l15.578-2.769l-2.077,10.383
+                                l-7.27,7.96l-6.231,15.92l-0.346,2.423l-11.078,16.612l19.04,5.191l24.925-11.075l-3.116,5.884l-1.731,6.922l-5.539,12.114
+                                l0.346,5.191l-11.424,21.457l22.155,3.808l25.271-3.808l0.692,37.725l12.116-13.498l13.847-7.96l17.655-11.421l-1.73,15.229
+                                l2.769,37.032l1.039,12.805l9,25.266l0.692-17.997l22.155-58.145l14.193,31.841l-1.731-35.647l23.54-69.565l14.54,28.38
+                                l-1.731-28.38l3.462-25.61l19.732-38.763l21.463,38.416l-3.808-39.454l9.692-21.458v-6.922l8.309-8.652l2.77,7.613l16.616,26.649
+                                l-5.885-36.34v-6.229l7.962-21.112l-0.347-4.499l18.001-22.497l27.349-5.537l25.616,7.614l10.386,13.498v13.844l9.693-0.692
+                                l15.924-11.421l-1.731,6.576l-10.039,9.69l13.155,1.039l21.463-29.418l4.154-24.227l11.077-12.113l0.692-19.728l-3.462-0.346
+                                l-6.923,11.075v3.807l-11.771,7.268l-6.577-14.882l-12.116,14.19l-2.77-19.727l-14.193,6.575l-2.423,2.423l-2.77,1.039
+                                l-1.385,3.115l-4.154-0.692l-0.346-3.461l3.808-0.692l-5.539-15.92l-18.001,3.461l-1.385-2.077l-3.115-11.075l-4.847,5.192
+                                l-5.192,6.922l-9.693-2.423l-8.654-9.691l2.77-17.305l17.655-22.496l-2.77,23.88l3.808,7.268l6.924-1.73l0.692-4.153l11.77-12.459
+                                l6.924,17.305l5.539,0.346l6.923-1.385l10.039-11.075l12.116,14.19l8.309-0.692l9.001-12.113l7.27,16.959h10.385l11.424-15.575
+                                l3.462,12.806l-7.27,14.19l7.27,1.384l11.424-11.421l9.001-16.266l0.346-4.153l3.462-6.229l14.539-12.459l11.771-25.265
+                                l11.424-19.381l4.153-13.498L637.195,73.167z M500.209,85.681l-24.996-3.998l-13.498-4.498l26.996-5.998l13.498,1l4.499,6.497
+                                l1.5,11.995L500.209,85.681z"/>
+                </g>
+        </g>
+        </svg>
+</div>
+<h1>Winter is coming</h1>
+<h2>http://github.com/jbodet/winteriscoming</h2>
+</div>
+</article>
+</section>
+<section>
+<h2>Concept du site</h2>
+<article>
+<div class="sect2">
+<h3 id="_présentation">Présentation</h3>
+<p><span class="image">
+<img src="ressources/images/winteriscoming.png" alt="Logo">
+</span></p>
+</div>
+</article>
+</section>
+<section>
+<h2>Concept du site</h2>
+<article>
+<div class="sect2">
+<h3 id="_présentation_2">Présentation</h3>
+<ul class="incremental">
+<li>
+<strong>L&#8217;idée ?</strong>
+<ul>
+<li>
+Un site vitrine simple (pas de chargement ajax, de contrôles complexes, etc.)
+</li>
+<li>
+Une navigation verticale, horizontale et&#8230; transverse
+</li>
+<li>
+Adaptée à différentes résolutions
+</li>
+</ul>
+</li>
+<li>
+<strong>Comment ?</strong>
+<ul>
+<li>
+Bootstrap pour la grille et le carousel (navigation horizontale)
+</li>
+<li>
+RequireJS pour charger le JS et stocker les fonctions spécifiques
+</li>
+<li>
+Compass pour compiler mon code Sass
+</li>
+<li>
+Grunt pour me simplifier la vie :)
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</article>
+</section>
+<section>
+<h2>&#160;</h2>
+<article>
+<div id="grunt" style="background-color: #fff" class="fullpage">
+<h1>Grunt</h1>
+</div>
+</article>
+</section>
+<section>
+<h2>Grunt</h2>
+<article>
+<p><span class="pull-right"><span class="image">
+<img src="ressources/images/grunt.png" alt="Logo">
+</span></span></p>
+<ul class="incremental">
+<li>
+<strong>A quoi ça sert ?</strong>
+<ul>
+<li>
+Automatiser des traitements répétitifs
+<div class="literal">
+<pre class="literal">Compiler/minifier mon CSS/HTML dès modification (save)
+Demander le rafraichissement de mon navigateur (livereload)</pre>
+</div>
+</li>
+</ul>
+</li>
+<li>
+Prérequis
+<div class="literal">
+<pre class="literal">Installer Node Packaged Module (npm)
+https://npmjs.org
+http://nodejs.org/download</pre>
+</div>
+</li>
+<li>
+<strong>Installation</strong>
+<div class="literal">
+<pre class="literal">http://gruntjs.com/getting-started</pre>
+</div>
+</li>
+<li>
+Autres fonctionnalités
+<div class="literal">
+<pre class="literal">Lancer un serveur virtuel</pre>
+</div>
+</li>
+<li>
+Décortiquons le fichier Gruntfile
+</li>
+</ul>
+</article>
+</section>
+<section>
+<h2>&#160;</h2>
+<article>
+<div id="sass" style="background-color: #000" class="fullpage">
+<h1>COMPASS</h1>
+<p class="credits">http://www.sonspring.com/journal/sass-for-designers</p>
+</div>
+</article>
+</section>
+<section>
+<h2>Sass</h2>
+<article>
+<p><span class="pull-right"><span class="image">
+<img src="ressources/images/compass.png" alt="Logo">
+</span></span></p>
+<ul class="incremental">
+<li>
+<strong>A quoi ça sert ?</strong>
+<ul>
+<li>
+<strong>SASS :</strong> organiser son CSS, inclure des notions de variables, fonctions
+</li>
+<li>
+<strong>COMPASS :</strong> compiler son SASS en CSS (compréhensible par le navigateur)
+<div class="literal">
+<pre class="literal">Ajouter des mixins pour simplifier la compatibilité navigateur (-webkit, -ms, etc.)</pre>
+</div>
+</li>
+</ul>
+</li>
+<li>
+<strong>Installation</strong>
+<div class="literal">
+<pre class="literal">http://compass-style.org/install/
+http://compass-style.org/index/mixins/</pre>
+</div>
+</li>
+</ul>
+</article>
+</section>
+<section>
+<h2>Sass</h2>
+<article>
+<div class="sect2">
+<h3 id="_mettez_le_turbo_sur_le_codage_css">Mettez le turbo sur le codage CSS</h3>
+<ul>
+<li>
+Syntaxe SASS / CSS
+</li>
+</ul>
+<div class="listing">
+<pre class="css"><code>@import "compass/css3";
+
+$color="#fff";
+
+#mon_element {
+        @include opacity(.5);
+
+        .mes_sous_elements {
+                color: $color;
+        }
+}</code></pre>
+</div>
+<div class="listing">
+<pre class="css"><code>#mon_element {
+        -webkit-opacity: .5;
+         -khtml-opacity: .5;
+             -o-opacity: .5;
+            -ms-opacity: .5;
+                opacity: .5;
+}
+#mon_element .mes_sous_elements {
+        color: #fff;
+}</code></pre>
+</div>
+</div>
+</article>
+</section>
+<section>
+<h2>&#160;</h2>
+<article>
+<div id="require" style="background-color: #000" class="fullpage">
+<h1>RequireJS</h1>
+</div>
+</article>
+</section>
+<section>
+<h2>RequireJS</h2>
+<article>
+<ul>
+<li>
+<strong>A quoi ça sert ?</strong>
+<ul>
+<li>
+Chargement de fichiers JS en ajoutant la notion de dépendance&#8230;
+</li>
+</ul>
+</li>
+<li>
+Utilisation dans ce projet
+<div class="literal">
+<pre class="literal">data-main : chargement de la ressource principale</pre>
+</div>
+</li>
+</ul>
+<div class="listing">
+<pre class="hmtl"><code>&lt;script data-main="scripts/config" src="scripts/libs/require.js"&gt;&lt;/script&gt;</code></pre>
+</div>
+<div class="listing">
+<pre class="js"><code>require.config({
+        deps: ["main"],         // chargement du fichier main.js
+        paths: [],              // chemin de mes plugins
+        shim: []                // dépendances
+});</code></pre>
+</div>
+<div class="listing">
+<pre class="js"><code>require([
+  'jquery',
+  'plugin'
+],
+function($,plugin) { /* mon JS */ };</code></pre>
+</div>
+</article>
+</section>
+<section>
+<h2>&#160;</h2>
+<article>
+<div id="construction" style="background-color: #000" class="fullpage">
+<h1>Construction du site</h1>
+</div>
+</article>
+</section>
+<section>
+<h2>Arborescence</h2>
+<article>
+<ul>
+<li>
+<strong>Détails de l&#8217;arborescence</strong> des fichiers
+</li>
+</ul>
+<div class="listing">
+<pre class="no-highlight"><code>+ temp (gestion du cache)
++ app (mon appli)
+        + fonts
+        + img
+        + scripts
+                + libs (plugin et framework JS)
+                - config.js // config requireJS
+                - main.js   // mon JS
+        + styles
+                + libs (plugins)
+                - animation.scss // toutes mes animations CSS
+                - cssresset.scss // remise à zéro du CSS
+                - fonts.scss     // chargement des typos
+                - config.rb      // config Compass
+                - index.scss     // chargement des CSS (import)
+                - index.css      // css compilé via Compass
+                - common.scss    // CSS spécifique du site
+                - common.sass</code></pre>
+</div>
+</article>
+</section>
+<section>
+<h2>Structure HTML globale</h2>
+<article>
+<div class="sect2">
+<h3 id="_1_html_1_css_1_js">1 HTML + 1 CSS + 1 JS</h3>
+<ul>
+<li>
+Syntaxe HTML
+</li>
+</ul>
+<div class="listing">
+<pre class="html"><code>&lt;html&gt;
+        &lt;head&gt;
+        &lt;meta name="viewport" content="width=device-width"/&gt;
+        &lt;link rel="stylesheet" href="styles/index.css"/&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+                &lt;header id="header"&gt;&lt;/header&gt;
+                &lt;footer id="footer"&gt;&lt;/footer&gt;
+                &lt;div role="main" id="main"&gt;
+
+                        &lt;div id="poster_lannister" class="poster"&gt;&lt;/div&gt;
+                        &lt;div id="poster_stark" class="poster"&gt;&lt;/div&gt;
+
+                        &lt;div id="banners"&gt;&lt;/div&gt;
+
+                &lt;/div&gt;
+
+
+        &lt;script data-main="scripts/config"
+                        src="scripts/libs/require.js"&gt;&lt;/script&gt;
+        &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+</div>
+</article>
+</section>
+<section>
+<h2>Structure HTML des "posters"</h2>
+<article>
+<div class="sect2">
+<h3 id="_navigation_horizontale">Navigation horizontale</h3>
+<ul>
+<li>
+Syntaxe HTML
+</li>
+</ul>
+<div class="listing">
+<pre class="html"><code>&lt;div id="poster_lannister" class="poster"&gt;
+
+        &lt;div class="mask"&gt;&lt;/div&gt;
+
+        &lt;div class="subposter_left"&gt;&lt;/div&gt;
+        &lt;div class="subposter_right"&gt;&lt;/div&gt;
+        &lt;div class="subposter_right"&gt;&lt;/div&gt;
+
+&lt;/div&gt;</code></pre>
+</div>
+<ul>
+<li>
+Ajout de la couche <strong>carousel</strong>
+</li>
+</ul>
+<div class="listing">
+<pre class="html"><code>&lt;div id="poster_lannister" class="poster carousel slide"&gt;
+
+        &lt;div class="mask"&gt;&lt;/div&gt;
+
+        &lt;div class="carousel-inner"&gt;
+                &lt;div class="item active subposter_left"&gt;&lt;/div&gt;
+                &lt;div class="item subposter_right"&gt;&lt;/div&gt;
+                &lt;div class="item subposter_right"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+
+&lt;/div&gt;</code></pre>
+</div>
+</div>
+</article>
+</section>
+<section>
+<h2>Structure du contenu</h2>
+<article>
+<div class="sect2">
+<h3 id="_la_grille_8230_enfin">La grille&#8230; enfin !</h3>
+<ul>
+<li>
+Syntaxe HTML
+</li>
+</ul>
+<div class="listing">
+<pre class="html"><code>&lt;div class="item subposter_right"&gt;
+        &lt;div class="container"&gt;
+                &lt;div class="row-fluid"&gt;
+                        &lt;div class="text span4"&gt;&lt;/div&gt;
+                        &lt;div class="text span4"&gt;&lt;/div&gt;
+                        &lt;div class="text span4"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+</div>
+</article>
+</section>
+<section>
+<h2>Structure du contenu</h2>
+<article>
+<div class="sect2">
+<h3 id="_media_queries_10">Media Queries</h3>
+<ul>
+<li>
+Utilisation de classes spécifiques :
+<ul>
+<li>
+<strong>hidden-phone :</strong>
+<div class="literal">
+<pre class="literal">Sur les images (trop grosses, il faudrait une gestion plus spécifique)
+Sur les navigations transverse (#banners)</pre>
+</div>
+</li>
+</ul>
+</li>
+<li>
+Utilisation d&#8217;une "astuce" pour les images
+<ul>
+<li>
+<strong>max-width :</strong> l&#8217;image ne dépassera jamais son container
+</li>
+</ul>
+</li>
+</ul>
+<div class="listing">
+<pre class="css"><code>figure {
+        img {
+                max-width: 100%;
+                border: 1px solid #fff;
+        }
+}</code></pre>
+</div>
+</div>
+</article>
+</section>
+<section>
+<h2>Animer l&#8217;ensemble</h2>
+<article>
+<div class="sect2">
+<h3 id="_gestion_des_transitions_animations">Gestion des transitions/animations</h3>
+<div class="listing">
+<pre class="scss"><code>.poster {
+  .subposter_left {
+    background: transparent url('../img/large/crown.jpg') no-repeat 30% 100%;
+
+    &amp;.right {
+      @include opacity(0);
+    }
+
+    &amp;.active {
+      @include animation(slideBgFromBottomLeft 800ms ease-out);
+      .text {
+        h1, h2 {
+          @include animation(fadeInLeft 400ms ease-in);
+        }
+        p {
+          @include animation(fadeInUp 400ms ease-in);
+
+          &amp;.link {
+            @include animation(fadeInLeft 400ms ease-in);
+          }
+        }
+      }
+      .figure {
+        @include animation(fadeInDown 400ms ease-in);
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
+</article>
+</section>
+<section>
+<h2>Animer l&#8217;ensemble</h2>
+<article>
+<div class="sect2">
+<h3 id="_gestion_des_transitions_animations_2">Gestion des transitions/animations</h3>
+<ul>
+<li>
+Exemple de la <strong>définition d&#8217;une animation</strong> dans animations.scss
+</li>
+</ul>
+<div class="listing">
+<pre class="scss"><code>/* keyframes mixin */
+@mixin keyframes($name) {
+        @-webkit-keyframes #{$name} { @content; }
+        @-moz-keyframes #{$name} { @content; }
+        @-ms-keyframes #{$name} { @content; }
+        @keyframes #{$name} { @content; }
+}
+@mixin animation($value) {
+        -webkit-animation: $value;
+       -moz-animation: $value;
+         -o-animation: $value;
+            animation: $value;
+}
+
+/* Animations */
+@include keyframes(slideBgFromLeft) {
+        0% {
+                background-position: -30% 0%;
+        }
+        100% {
+                background-position: 30% 0%;
+        }
+}</code></pre>
+</div>
+</div>
+</article>
+</section>
+<section>
+<h2>Animer l&#8217;ensemble</h2>
+<article>
+<div class="sect2">
+<h3 id="_navigation_transverse">Navigation transverse</h3>
+<ul>
+<li>
+Syntaxe HTML
+</li>
+</ul>
+<div class="listing">
+<pre class="html"><code>&lt;div id="banners" class="crossnav crossnavhide hidden-phone"&gt;
+        &lt;ol class="row-fluid"&gt;
+                &lt;li id="banner_lannister" class="span2 banner"
+                        data-slide-to="lannister"&gt;
+                        &lt;span class="title"&gt;House Lannister&lt;/span&gt;
+                &lt;span class="picto"&gt;&lt;/span&gt;
+                &lt;/li&gt;
+                &lt;li id="banner_stark" class="span2 banner"
+                        data-slide-to="stark"&gt;&lt;/li&gt;
+        &lt;/ol&gt;
+&lt;/div&gt;</code></pre>
+</div>
+<ul>
+<li>
+Syntaxe Sass
+</li>
+</ul>
+<div class="listing">
+<pre class="scss"><code>.crossnav {
+        @include opacity(1);
+        @include transition(opacity 100ms ease-in, transform 1ms ease-out);
+
+        &amp;.crossnavhide {
+                @include opacity(0);
+                @include translateX(-100%);
+        }
+}</code></pre>
+</div>
+</div>
+</article>
+</section>
+<section>
+<h2>Animer l&#8217;ensemble</h2>
+<article>
+<div class="sect2">
+<h3 id="_navigation_transverse_2">Navigation transverse</h3>
+<ul>
+<li>
+Couche fonctionnelle JS
+</li>
+</ul>
+<div class="listing">
+<pre class="js"><code>var h = windowHeight-menuHeight-footerHeight;
+$('#banners li').each(function(){
+        $(this).height(h);
+        $(this).bind('click',function(e){
+                e.preventDefault();
+                var id_target = $(this).data('slide-to');
+                goToPoster(id_target);
+        })
+});</code></pre>
+</div>
+<ul>
+<li>
+Prévoir aussi l&#8217;affichage au click du logo
+</li>
+</ul>
+<div class="listing">
+<pre class="js"><code>$('#header .show_crossnav').bind('click',function(e){
+        e.preventDefault();
+        $('#banners').toggleClass('crossnavhide');
+});</code></pre>
+</div>
+</div>
+</article>
+</section>
+<section>
+<h2>Animer l&#8217;ensemble</h2>
+<article>
+<div class="sect2">
+<h3 id="_navigation_entre_poster">Navigation entre poster</h3>
+<div class="listing">
+<pre class="js"><code>function slideTo(i,element) {}
+function goToPoster(id_target){}
+function updateUI(){}</code></pre>
+</div>
+<ul>
+<li>
+3 fonctions indispensable
+<ul>
+<li>
+<strong>slideTo :</strong> fonction de navigation horizontal (i=index, element=poster)
+<div class="literal">
+<pre class="literal">Scroll horizontal géré via CSS3/Transition</pre>
+</div>
+</li>
+<li>
+<strong>goToPoster :</strong> fonction de navigation vertical (id_target = lannister, stark, etc.)
+<div class="literal">
+<pre class="literal">Scroll navigateur géré via animate()</pre>
+</div>
+</li>
+<li>
+<strong>updateUI :</strong> met à jour l&#8217;interface en fonction du poster sélectionné
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</article>
+</section>
+<section>
+<h2>Animer l&#8217;ensemble</h2>
+<article>
+<div class="sect2">
+<h3 id="_navigation_entre_poster_2">Navigation entre poster</h3>
+<div class="listing">
+<pre class="js"><code>function onScroll(){}
+function onResize(){} // pour recalculer la hauteur de #banners
+function onKeyDown(e){}
+
+// Listeners
+$(window).scroll(onScroll).keydown(onKeyDown).resize(onResize);</code></pre>
+</div>
+<ul>
+<li>
+Les fonctions "bonus"
+<ul>
+<li>
+<strong>onScroll :</strong> gestion du rafraichissement du poster actif
+</li>
+<li>
+<strong>onResize :</strong> gestion du panneau #banners (height=100% défaillant)
+</li>
+<li>
+<strong>onKeyDown :</strong> gestion de la navigation par clavier
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</article>
+</section>
+<section>
+<h2>Animer l&#8217;ensemble</h2>
+<article>
+<div class="sect2">
+<h3 id="_navigation_entre_poster_3">Navigation entre poster</h3>
+<div class="listing">
+<pre class="js"><code>$(_self).on('movestart',function(e){
+        if ((e.distX &gt; e.distY &amp;&amp; e.distX &lt; -e.distY) || (e.distX &lt; e.distY &amp;&amp; e.distX &gt; -e.distY)) {
+                e.preventDefault();
+        }
+});
+$(_self).on('swipeleft',function(e){
+        slideTo('next',$(_self));
+});
+$(_self).on('swiperight',function(e){
+        slideTo('prev',$(_self));
+});</code></pre>
+</div>
+<ul>
+<li>
+Et pour les tablettes (_self = carousel)
+<ul>
+<li>
+<strong>swipeLeft/swipeRight :</strong> gestion du swipe pour changer de subposter
+</li>
+<li>
+<strong>movestar :</strong> pour éviter de "bloquer" le swipe haut/bas sur tablette
+</li>
+</ul>
+</li>
+<li>
+Pour les curieux : <a href="http://quojs.tapquo.com">http://quojs.tapquo.com</a>
+</li>
+</ul>
+</div>
+</article>
+</section>
+<section>
+<h2>&#160;</h2>
+<article>
+<div style="background: #000;" class="fullpage"></div>
+</article>
+</section>
+<section>
+<h2>&#160;</h2>
+<article>
+<div id="prezend" class="fullpage">
+<h1>Merci pour votre attention</h1>
+<h2>Responsive Web Design</h2>
+<p class="credits">Copyright Walt Disney Pictures 2001</p>
+</div>
+</article>
+</section>
+    <script src="./dzslides/core/dzslides.js"></script>
+    <script src="./dzslides/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>

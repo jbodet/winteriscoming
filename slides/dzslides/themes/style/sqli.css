@@ -1,0 +1,703 @@
+html, .view body {
+  background-color: black;
+  counter-reset: slideidx;
+}
+body, .view section {
+}
+
+section{
+  background-color: white;
+  z-index: -2;
+   -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+  border-radius: 12px;
+}
+
+section, .view head > title {  
+  font-family: "Arial Narrow", "Liberation Sans Narrow", Arial, sans-serif;
+  font-stretch: condensed;
+  font-size: 30px;
+}
+.view section:after {
+  counter-increment: slideidx;
+  content: counter(slideidx, decimal-leading-zero);
+  position: absolute;
+  bottom: -80px;
+  right: 100px;
+  color: white;
+}
+.view head > title {
+  color: white;
+  text-align: center;
+  margin: 1em 0 1em 0;
+}
+
+ul {
+    margin: 10px 10px;
+}
+/*
+p {
+  margin: 75px;
+  font-size: 50px;
+}
+*/
+/* Figures are displayed full-page, with the caption
+   on top of the image/video */
+figure {
+  background-color: black;
+}
+figcaption {
+  margin: 70px;
+  font-size: 50px;
+}
+
+
+
+.view section {
+  -moz-transition: none;
+  -webkit-transition: none;
+  -ms-transition: none;
+  transition: none;
+}
+.view section[aria-selected] {
+  border: 5px red solid;
+}
+
+/* Incremental elements */
+
+/* By default, visible */
+.incremental > * {
+  opacity: .5;
+}
+
+/* The current item */
+.incremental > *[aria-selected] {
+  opacity: 1;
+}
+
+/* The items to-be-selected */
+.incremental > *[aria-selected] ~ * {
+  opacity: 0;
+}
+
+.view .incremental {
+  visibility: visible;
+}
+
+.view .incremental * {
+  opacity: 1 !important;
+}
+/* The progressbar, at the bottom of the slides, show the global
+   progress of the presentation. */
+#progress-bar {
+  height: 2px;
+  background: #AAA;
+}
+
+/* line 312, ../scss/default.scss */
+section > h1, section > div > h2, section > h2, section > article > div.sect2 > h3 {
+  font-weight: 600;
+  text-transform : uppercase;
+}
+
+section > h1, section.intro > h2{  
+  font-weight: 400;
+  position: absolute;
+  top: 18%;
+  left: 26%;
+  font-size: 30px;
+  line-height: 1.25em;
+  color: #DA0E1A;
+  margin-left: 10px;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  width: 40%;
+  height: 9.75%;
+  overflow: hidden;
+}
+
+section.title > div > h2, section.intro > article > div.sect2 > h3{  
+  position: absolute;
+  top: 34%;
+  left: 41%;
+  font-size: 24px;
+  line-height: 1.2em;
+  letter-spacing: 0px;
+  color: #111211;
+  /*
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);*/
+  margin-left: 10px;
+  width: 40%;
+  height: 8.2%;
+  overflow: hidden;
+}
+section.intro > article > div.sect2, section.title > div.subtitle{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+}
+
+/* line 316, ../scss/default.scss */
+section:not(.title):not(.intro) > h2 {
+  position: absolute;
+  top: 10px;
+  left: 11px;
+  width: 100%;
+  padding-left: 12%;
+  padding-right: 0.1em;
+  padding-top: 0.1em;
+  font-size: 30px;
+  line-height: 35px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #DA0E1A;
+}
+
+/* 
+
+  Slides
+
+ */
+section:not(.title):not(.intro) > article > div.sect2 > h3 {
+  font-size: 26px;
+  line-height: 2;
+  font-weight: inherit;
+  color: #111211;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 100%;
+  padding-left: 13%;
+  padding-right: 0.1em;
+  padding-top: 1.2em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+section.title{
+  bottom: 0px;
+  right: 0px;
+  background: url(../../images/logo.png) no-repeat 20% 60%, url(../../images/fond_1.jpg) no-repeat 100% 99%;
+  -webkit-background-size: 10% 10%, 100% 100%;
+  -moz-background-size: 10% 10%,100% 100%;
+  -o-background-size: 10% 10%,100% 100%;
+  background-size: 10% 10%,100% 100%;
+}
+section > footer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  padding-top: 65%;
+  padding-right: 0%;
+  font-size: 0.7em;
+  color: #DA0E1A;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+}
+
+section:not(.title):not(.intro):before{
+ font-size: 12pt;
+  content: "© SQLI GROUP 2013";
+  position: absolute;
+  top: 00px;
+  left: 0px;
+  background: url(../../images/carre_haut_1.png) no-repeat -0px 00px, url(../../images/carre_haut_2.png) no-repeat 5.3em 0%;
+  -webkit-background-size: 5.3em 5.3em, 10.9em 10.9em;
+  -moz-background-size: 5.3em 5.3em, 10.9em 10.9em;
+  -o-background-size: 5.3em 5.3em, 10.9em 10.9em;
+  background-size: 5.3em 5.3em, 10.9em 10.9em;
+  padding-left: 4em;
+  padding-top: 40em;
+  height: 100%;
+  line-height: 1.9;
+  z-index: 0;
+  width: 100%;
+  -webkit-border-top-left-radius: 12px;
+  -moz-border-radius-topleft: 12px;
+  -ms-border-top-left-radius: 12px;
+  -o-border-top-left-radius: 12px;
+  border-top-left-radius: 12px;
+
+}
+
+
+section:not(.title):not(.intro):after{
+  font-size: 12pt;
+  content: " ";
+  position: absolute;
+  top: 00px;
+  left: 0px;
+  background: url(../../images/logo_sstxt.png) no-repeat 51em 40em;
+  z-index: -1;
+  -webkit-background-size: 2em 2em;
+  -moz-background-size: 2em 2em;
+  -o-background-size: 2em 2em;
+  background-size: 2em 2em;
+  padding-left: 4em;
+  padding-top: 40em;
+  height: 100%;
+  line-height: 1.9;
+  width: 100%;
+}
+
+section:not(.title):not(.intro) {
+  font-size: 24px;  
+  padding: 10px 10px 40px 100px;  
+}
+section:not(.title):not(.intro) > article:not(h1):not(h2):not(footer), 
+section:not(.title):not(.intro) > :not(h1):not(h2):not(footer) {
+  padding-top: 5em;
+  padding-right: 2.5em;
+  padding-bottom: 2.6em;
+  padding-left: 4.4em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+
+
+li > div.literal > pre.literal{
+  color: rgba(0, 13, 23, 0.7);
+  font-family: "Arial Narrow", "Liberation Sans Narrow", Arial, sans-serif;
+  font-stretch: condensed; 
+}
+
+/*
+ 
+ Citations
+
+*/
+
+
+blockquote {
+  padding: 0 0 0 15px;
+  margin: 2em 2em 0 2em;
+  border-left: 5px solid #DA0E1A;
+  font-size: 0.7em;
+}
+
+blockquote:before {
+  color: #DA0E1A;
+  content: '\201C';
+  font-size: 4em;
+  font-weight: 700;
+  float: left;
+  margin-left: -.9em;
+}
+
+section blockquote p {
+  color: #1D2326;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: .5em;
+  font-style: italic;
+  font-size: 3.5em;
+  font-weight: normal;
+}
+
+blockquote p em {
+  font-style: italic;
+}
+
+blockquote p:last-of-type {
+  margin-bottom: 0;
+  padding-bottom: 0.1em;
+}
+
+blockquote cite {
+  font-size: 1.5em;
+  display: block;
+  line-height: 1.8;
+  color: rgba(0, 13, 23, 0.7);
+  font-style: normal;
+  margin-top: .25em;
+}
+
+blockquote cite:before {
+  content: '\2014 \00A0';
+}
+
+
+/*
+  Listes
+*/
+li{
+  margin-top: 0.7em;
+}
+
+article  div > ul > li, 
+article  div > ul > li > ul > li, 
+article > ul > li,
+article > ul > li > ul > li
+{
+  list-style: none;
+}
+article  div > ul > li:before, 
+article  div > div > ul > li:before, 
+article > ul > li:before{
+  content: '+';
+  display: block;
+  position: relative;
+  max-width: 0px;
+  max-height: 0px;
+  left: -0.7em;
+  top: -0.3em;
+  color: #DA0E1A;
+  font-size: 2em;
+}
+
+article  div > ul >li > ul > li:before, 
+article> ul >li > ul > li:before{
+content: " ";
+padding-right: 14px;
+display: block;
+position: relative;
+left: -0.7em;
+top: 0.7em;
+width: 0;
+height: 0;
+border-bottom: 10px solid transparent;
+border-left: 10px solid rgba(0, 143, 255,1);
+  }
+  /*
+article > div.sect2 >ul > li > ul > li, 
+article > ul > li > ul > li{
+  list-style-image: url('../../images/breadcrumb_arrow.png');  
+}
+
+article > div.sect2 > ul > li > ul > li > ul > li, 
+article > ul > li > ul > li > ul > li
+{
+  list-style: circle;
+}*/
+
+/*
+ Mise en form classique
+*/
+
+.center_horizontal{
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.middle, .statement {
+  position: relative;
+  top: 40%;
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  -o-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+
+section p.statement {
+  font-size: 4em;
+}
+
+.hide {
+  display: none;
+}
+
+img.middle {
+  position: relative;
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+  top: 0;
+  display: block;
+  margin: 0 auto;
+}
+
+span.stretch-x > img,
+img.stretch-x {
+  width: 100%;
+}
+
+span.stretch-y > img, 
+img.stretch-y {
+  height: 100%;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+.text-right {
+  text-align: right;
+}
+.overline {
+  text-decoration:overline;
+}
+.line-through {
+  text-decoration:line-through;
+}
+.underline {
+  text-decoration:underline;
+}
+
+
+/* line 444, ../scss/default.scss */
+:disabled {
+  color: #a9a9a9;
+}
+
+/* line 448, ../scss/default.scss */
+.blue {
+  color: #4387fd;
+}
+
+/* line 451, ../scss/default.scss */
+.blue2 {
+  color: #3c8ef3;
+}
+
+/* line 454, ../scss/default.scss */
+.blue3 {
+  color: #2a7cdf;
+}
+
+/* line 457, ../scss/default.scss */
+.yellow {
+  color: #ffd14d;
+}
+
+/* line 460, ../scss/default.scss */
+.yellow2 {
+  color: #f9cc46;
+}
+
+/* line 463, ../scss/default.scss */
+.yellow3 {
+  color: #f6c000;
+}
+
+/* line 466, ../scss/default.scss */
+.green {
+  color: #0da861;
+}
+
+/* line 469, ../scss/default.scss */
+.green2 {
+  color: #00a86d;
+}
+
+/* line 472, ../scss/default.scss */
+.green3 {
+  color: #009f5d;
+}
+
+/* line 475, ../scss/default.scss */
+.red {
+  color: #f44a3f;
+}
+
+/* line 478, ../scss/default.scss */
+.red2 {
+  color: #e0543e;
+}
+
+/* line 481, ../scss/default.scss */
+.red3 {
+  color: #d94d3a;
+}
+
+/* line 484, ../scss/default.scss */
+.gray {
+  color: #e6e6e6;
+}
+
+/* line 487, ../scss/default.scss */
+.gray2 {
+  color: #a9a9a9;
+}
+
+/* line 490, ../scss/default.scss */
+.gray3 {
+  color: #797979;
+}
+
+/* line 493, ../scss/default.scss */
+.gray4 {
+  color: #515151;
+}
+
+/* line 497, ../scss/default.scss */
+.white {
+  color: white !important;
+}
+
+/* line 500, ../scss/default.scss */
+.black {
+  color: black !important;
+}
+
+/*
+
+Code
+
+*/
+section pre:not(.literal) code {
+  font-family: "DejaVu Sans Mono", "Droid Sans Mono", Menlo, Monaco, "Courier New", monospace;
+  font-size: 0.7em;
+  line-height: 1.2;
+  background: #e6e6e6;
+  border: 1px solid rgba(255,255,255,.2);
+  margin-bottom: 1em;
+}
+
+/*
+
+Tableaux
+
+*/
+
+/* line 508, ../scss/default.scss */
+table {
+  width: 100%;
+  border-collapse: -moz-initial;
+  border-collapse: initial;
+  border-spacing: 2px;
+  
+}
+/* line 515, ../scss/default.scss */
+
+/* line 520, ../scss/default.scss */
+table tr:nth-child(odd) {
+  background-color: rgba(214,14,26,.2);/*#e6e6e6;*/
+}
+table tr:nth-child(even) {
+  background-color: rgba(214,14,26,.1);/*#e6e6e6;*/
+}
+/* line 524, ../scss/default.scss */
+table th {
+  color: white;
+  font-size: 18px;
+  background: #DA0E1A;
+}
+/* line 530, ../scss/default.scss */
+table td, table th {
+  font-size: 18px;
+  padding: 1em 0.5em;
+}
+/* line 535, ../scss/default.scss */
+table td.highlight {
+  color: #515151;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(40%, #ffd14d), color-stop(80%, #f6c000)) no-repeat;
+  background: -webkit-linear-gradient(top, #ffd14d 40%, #f6c000 80%) no-repeat;
+  background: -moz-linear-gradient(top, #ffd14d 40%, #f6c000 80%) no-repeat;
+  background: -o-linear-gradient(top, #ffd14d 40%, #f6c000 80%) no-repeat;
+  background: -ms-linear-gradient(top, #ffd14d 40%, #f6c000 80%) no-repeat;
+  background: linear-gradient(top, #ffd14d 40%, #f6c000 80%) no-repeat;
+}
+/* line 540, ../scss/default.scss */
+table.rows {
+  border-bottom: none;
+  border-right: 1px solid #797979;
+}
+
+/*
+
+Images and backgrounds management
+
+*/
+
+section.intro span.image > img{
+
+  display: block;
+  z-index: -1;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+  border-radius: 12px;  
+
+}
+
+section.intro img.icone{
+
+  display: block;
+  position: absolute;
+  height: 100px;
+  float:left;
+}
+
+section.intro div.sect2 > img.icone{
+  top: 5.5em;
+  left: 6em;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+
+}
+
+section.intro article > img.icone{
+  top: 11.5em;
+  left: 4em;
+
+}
+
+
+section.intro.fond_1 {
+  bottom: 0px;
+  right: 0px;
+  background: url(../../images/fond_1.jpg) no-repeat 100% 99%;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;
+}
+
+section.intro.fond_2 {
+  bottom: 0px;
+  right: 0px;
+  background: url(../../images/fond_2.jpg) no-repeat 100% 99%;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;
+}
+
+section.intro.fond_3 {
+  bottom: 0px;
+  right: 0px;
+  background: url(../../images/fond_3.jpg) no-repeat 100% 99%;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;
+}
+
+section.intro.fond_fin {
+  bottom: 0px;
+  right: 0px;
+  background: url(../../images/fond_fin.jpg) no-repeat 100% 99%;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;
+}
